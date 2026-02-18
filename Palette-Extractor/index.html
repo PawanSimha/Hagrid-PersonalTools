@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- Author: Pawan Simha -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Pawan Simha">
+    <link rel="canonical" href="https://hagrid.tools/Palette-Extractor/index.html">
+    <meta name="description"
+        content="Extract beautiful color palettes from any image instantly. Perfect for design inspiration and UX work.">
+    <meta property="og:title" content="Palette Extractor | Hagrid">
+    <meta property="og:description"
+        content="Find the perfect color scheme. Extract dominant colors from your images in seconds.">
+    <meta property="og:image" content="../images/logo.png">
+    <meta property="og:url" content="https://hagrid.tools/Palette-Extractor/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#212121">
+    <title>Palette Extractor | Hagrid</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="top-nav" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-brand" aria-label="Hagrid Home">
+            <img src="../images/logo.png" alt="Hagrid Logo">
+            <span>Hagrid</span>
+        </a>
+        <div class="nav-links-right">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../index.html#tools" class="nav-link">Tools</a>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+                <span class="toggle-icon sun-icon">☀︎</span>
+                <span class="toggle-icon moon-icon">☾</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <section class="tool-workspace">
+            <div class="canvas-container" style="flex-direction: column; gap: 2rem;">
+                <canvas id="canvas" style="display: none;"></canvas>
+                <img id="imagePreview"
+                    style="max-width: 100%; max-height: 300px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: none;">
+                <div id="paletteDisplay" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                </div>
+                <p id="uploadPrompt" style="color: var(--text-secondary);">Upload an image to extract its color palette
+                </p>
+            </div>
+        </section>
+
+        <aside class="tool-sidebar">
+            <div class="sidebar-header">
+                <h2>Palette Extractor</h2>
+                <p>Pull colors from any image</p>
+            </div>
+
+            <div class="control-group">
+                <label>Upload Image</label>
+                <div class="drop-zone" id="dropZone">
+                    <span class="drop-icon">📁</span>
+                    <p>Drag and drop image or upload image</p>
+                    <input type="file" id="imageInput" accept="image/*" />
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Max Colors <span class="control-value" id="countValue">8</span></label>
+                <input type="range" id="countInput" min="2" max="12" value="8">
+            </div>
+
+            <div id="hexStats"
+                style="font-size: 0.8rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.5rem;">
+                <p>Click on any color block to copy its HEX code.</p>
+                <button id="copyAllBtn" class="btn-primary"
+                    style="background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border-color); width: 100%; display: none;">Copy
+                    All HEX Codes</button>
+            </div>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="../global.js"></script>
+</body>
+
+</html>

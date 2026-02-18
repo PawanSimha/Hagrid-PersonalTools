@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- Author: Pawan Simha -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Pawan Simha">
+    <link rel="canonical" href="https://hagrid.tools/JSON-Formatter/index.html">
+    <meta name="description"
+        content="Validate, format, and minify JSON data instantly. Best tool for developers to debug JSON strings.">
+    <meta property="og:title" content="JSON Formatter & Validator | Hagrid">
+    <meta property="og:description" content="Debug JSON like a pro. Format, validate, and minify your data in seconds.">
+    <meta property="og:image" content="../images/logo.png">
+    <meta property="og:url" content="https://hagrid.tools/JSON-Formatter/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#212121">
+    <title>JSON Formatter | Hagrid</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        .json-editor {
+            width: 100%;
+            height: 60vh;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100%;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 1rem;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+            resize: none;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        .status-bar {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .status-success {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+            display: block;
+        }
+
+        .status-error {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-brand" aria-label="Hagrid Home">
+            <img src="../images/logo.png" alt="Hagrid Logo">
+            <span>Hagrid</span>
+        </a>
+        <div class="nav-links-right">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../index.html#tools" class="nav-link">Tools</a>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+                <span class="toggle-icon sun-icon">☀︎</span>
+                <span class="toggle-icon moon-icon">☾</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <section class="tool-workspace" style="flex-direction: column; align-items: stretch;">
+            <div class="json-editor">
+                <textarea id="jsonInput" placeholder="Paste your JSON here..."></textarea>
+            </div>
+            <div id="statusBar" class="status-bar"></div>
+        </section>
+
+        <aside class="tool-sidebar">
+            <div class="sidebar-header">
+                <h2>JSON Formatter</h2>
+                <p>Validate and beautify JSON</p>
+            </div>
+
+            <div class="control-group">
+                <button id="formatBtn" class="btn-primary">Format (Beautify)</button>
+            </div>
+
+            <div class="control-group">
+                <button id="minifyBtn" class="btn-outline">Minify (Compact)</button>
+            </div>
+
+            <div class="control-group">
+                <button id="copyBtn" class="btn-outline">Copy Result</button>
+            </div>
+
+            <div class="control-group">
+                <button id="clearBtn" class="btn-outline" style="color: #dc3545; border-color: #dc3545;">Clear
+                    All</button>
+            </div>
+
+            <div class="control-group" style="margin-top: 2rem;">
+                <p style="font-size: 0.8rem; color: var(--text-secondary);">
+                    <strong>Privacy Note:</strong> All processing happens 100% in your browser. Your data is never sent
+                    to any server.
+                </p>
+            </div>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="../global.js"></script>
+</body>
+
+</html>

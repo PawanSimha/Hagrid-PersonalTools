@@ -1,0 +1,29 @@
+
+# .gitignore for Hagrid Project
+# Virtual Environment (Recreated by setup.bat)
+Hagrid/
+.venv/
+venv/
+env/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Local Configuration
+.env
+.vscode/
+.idea/
+
+# Desktop Shortcuts (Recreated by setup.bat)
+*.lnk
+
+models/
+
+dist/
+
+build/
+
+dist/
+build/
+*.exe

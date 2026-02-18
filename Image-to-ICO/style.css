@@ -1,0 +1,320 @@
+/* Image to ICO Specific Styles */
+.tool-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Author: Pawan Simha */
+.tool-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.workspace {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.preview-card {
+    flex: 1.5;
+    background: var(--card-bg, #ffffff);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color, #e0e0e0);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    position: relative;
+}
+
+.preview-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    position: relative;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.canvas-preview {
+    max-width: 100%;
+    max-height: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-size: 20px 20px;
+    background-image:
+        linear-gradient(45deg, #eee 25%, transparent 25%),
+        linear-gradient(-45deg, #eee 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #eee 75%),
+        linear-gradient(-45deg, transparent 75%, #eee 75%);
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    transition: border-radius 0.3s ease;
+    overflow: hidden;
+}
+
+.crop-overlay {
+    position: absolute;
+    border: 2px dashed #007bff;
+    background: rgba(0, 123, 255, 0.1);
+    pointer-events: none;
+    display: none;
+}
+
+#uploadPrompt {
+    text-align: center;
+    color: #6c757d;
+    cursor: pointer;
+}
+
+.upload-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.preview-footer {
+    padding: 1rem;
+    background: #f1f3f5;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+.controls-card {
+    flex: 1;
+    background: var(--card-bg, #ffffff);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color, #e0e0e0);
+    padding: 1.5rem;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.control-group {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.control-group:last-child {
+    border-bottom: none;
+}
+
+.control-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    color: #212529;
+}
+
+.ratio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.ratio-btn {
+    padding: 0.5rem;
+    border: 1px solid #dee2e6;
+    background: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.ratio-btn.active {
+    background: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem !important;
+    font-weight: normal !important;
+    cursor: pointer;
+}
+
+.tool-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dee2e6;
+    background: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.input-item span {
+    display: block;
+    font-size: 0.75rem;
+    color: #6c757d;
+    margin-bottom: 0.25rem;
+}
+
+.input-item input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+}
+
+.size-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.size-grid label {
+    font-size: 0.85rem !important;
+    font-weight: normal !important;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 0;
+}
+
+.custom-size-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.custom-size-row input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.slider-container input {
+    flex: 1;
+}
+
+.shape-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.color-picker-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.primary-btn:hover {
+    background: #0056b3;
+}
+
+.secondary-btn {
+    padding: 0.5rem 1rem;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.hint-text {
+    font-size: 0.75rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .preview-card,
+body.dark-mode .controls-card {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark-mode .control-group label {
+    color: #e0e0e0;
+}
+
+body.dark-mode .preview-main {
+    background: #121212;
+}
+
+body.dark-mode .preview-footer {
+    background: #252525;
+    border-top-color: #333;
+    color: #aaa;
+}
+
+body.dark-mode .ratio-btn,
+body.dark-mode .icon-btn,
+body.dark-mode .secondary-btn,
+body.dark-mode input,
+body.dark-mode select {
+    background: #2d2d2d;
+    border-color: #444;
+    color: #e0e0e0;
+}
+
+body.dark-mode .ratio-btn.active {
+    background: #007bff;
+    border-color: #007bff;
+}
+
+@media (max-width: 900px) {
+    .workspace {
+        flex-direction: column;
+    }
+
+    .preview-card {
+        width: 100%;
+        min-height: 350px;
+    }
+
+    .controls-card {
+        width: 100%;
+        max-height: none;
+    }
+}

@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+python-multipart
+numpy
+opencv-python
+Pillow
+PyMuPDF
+pyinstaller
+colorama
+click
+h11
+starlette
+typing_extensions

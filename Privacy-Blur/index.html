@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- Author: Pawan Simha -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Pawan Simha">
+    <link rel="canonical" href="https://hagrid.tools/Privacy-Blur/index.html">
+    <meta name="description"
+        content="Sensitive data protection. Blur faces, license plates, or text in your images easily and privately.">
+    <meta property="og:title" content="Privacy Blur | Hagrid">
+    <meta property="og:description"
+        content="Protect your privacy. Blur sensitive information in your images before sharing them online.">
+    <meta property="og:image" content="../images/logo.png">
+    <meta property="og:url" content="https://hagrid.tools/Privacy-Blur/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#212121">
+    <title>Privacy Blur | Hagrid</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .canvas-wrapper {
+            position: relative;
+            cursor: crosshair;
+        }
+
+        #blurCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-brand" aria-label="Hagrid Home">
+            <img src="../images/logo.png" alt="Hagrid Logo">
+            <span>Hagrid</span>
+        </a>
+        <div class="nav-links-right">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../index.html#tools" class="nav-link">Tools</a>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+                <span class="toggle-icon sun-icon">☀︎</span>
+                <span class="toggle-icon moon-icon">☾</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <section class="tool-workspace">
+            <div class="canvas-container">
+                <div id="canvasWrapper" class="canvas-wrapper" style="display: none;">
+                    <canvas id="mainCanvas"></canvas>
+                    <canvas id="blurCanvas"></canvas>
+                </div>
+                <p id="uploadPrompt" style="color: var(--text-secondary);">Upload an image to blur sensitive info</p>
+            </div>
+        </section>
+
+        <aside class="tool-sidebar">
+            <div class="sidebar-header">
+                <h2>Privacy Blur</h2>
+                <p>Hide sensitive data before sharing</p>
+            </div>
+
+            <div class="control-group">
+                <label>Upload Image</label>
+                <div class="drop-zone" id="dropZone">
+                    <span class="drop-icon">📁</span>
+                    <p>Drag and drop image or upload image</p>
+                    <input type="file" id="imageInput" accept="image/*" />
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Blur Intensity <span class="control-value" id="blurValue">15</span>px</label>
+                <input type="range" id="blurInput" min="5" max="50" value="15">
+            </div>
+
+            <div class="advanced-toggle" id="advancedToggle">Advanced Options</div>
+            <div class="advanced-content" id="advancedContent">
+                <div class="control-group">
+                    <label>Transformations</label>
+                    <div class="btn-group">
+                        <button class="btn-outline" id="flipHBtn">Flip H</button>
+                        <button class="btn-outline" id="flipVBtn">Flip V</button>
+                        <button class="btn-outline" id="rotate90Btn">Rotate 90°</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Brightness <span class="control-value" id="brightnessValue">100</span>%</label>
+                    <input type="range" id="brightnessInput" min="0" max="200" value="100">
+                </div>
+
+                <div class="control-group">
+                    <label>Contrast <span class="control-value" id="contrastValue">100</span>%</label>
+                    <input type="range" id="contrastInput" min="0" max="200" value="100">
+                </div>
+            </div>
+
+            <button id="downloadBtn" class="btn-primary" style="margin-top: 1rem;">Download Private Image</button>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="../global.js"></script>
+</body>
+
+</html>

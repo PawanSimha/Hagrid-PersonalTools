@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- Author: Pawan Simha -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Pawan Simha">
+    <link rel="canonical" href="https://hagrid.tools/Circle-Crop/index.html">
+    <meta name="description"
+        content="Crop images into perfect circles with transparent backgrounds instantly. Perfect for profile pictures.">
+    <meta property="og:title" content="Circle Crop | Hagrid">
+    <meta property="og:description" content="Circular image cropping made easy. Get perfect profile icons in seconds.">
+    <meta property="og:image" content="../images/logo.png">
+    <meta property="og:url" content="https://hagrid.tools/Circle-Crop/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#212121">
+    <title>Circle Crop | Hagrid</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="top-nav" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-brand" aria-label="Hagrid Home">
+            <img src="../images/logo.png" alt="Hagrid Logo">
+            <span>Hagrid</span>
+        </a>
+        <div class="nav-links-right">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../index.html#tools" class="nav-link">Tools</a>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+                <span class="toggle-icon sun-icon">☀︎</span>
+                <span class="toggle-icon moon-icon">☾</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <section class="tool-workspace">
+            <div class="canvas-container checkerboard" id="canvasWrapper">
+                <canvas id="canvas"></canvas>
+            </div>
+        </section>
+
+        <aside class="tool-sidebar">
+            <div class="sidebar-header">
+                <h2>Circle Crop</h2>
+                <p>Create circular avatars instantly</p>
+            </div>
+
+            <div class="control-group">
+                <label>Upload Image</label>
+                <div class="drop-zone" id="dropZone">
+                    <span class="drop-icon">📁</span>
+                    <p>Drag and drop image or upload image</p>
+                    <input type="file" id="imageInput" accept="image/*" />
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Radius <span class="control-value" id="radiusValueDisplay">150</span>px</label>
+                <input type="number" id="radiusInput" value="150" min="50" max="1000">
+            </div>
+
+            <div class="control-group">
+                <label>Zoom <span class="control-value" id="zoomValue">1.0</span>x</label>
+                <input type="range" id="zoomInput" min="0.1" max="5" step="0.1" value="1">
+            </div>
+
+            <div class="control-group">
+                <label>Background Color</label>
+                <input type="color" id="bgColorInput" value="#ffffff"
+                    style="width: 100%; padding: 0.1rem; border: 1px solid var(--border-color); cursor: pointer;">
+                <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.2rem;">Tip: Set to transparent
+                    for PNG downloads.</p>
+            </div>
+
+            <div class="control-group">
+                <label>Positioning (X: <span class="control-value" id="offsetXValue">0</span>px / Y: <span
+                        class="control-value" id="offsetYValue">0</span>px)</label>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                    <div>
+                        <input type="range" id="offsetXInput" min="-500" max="500" value="0">
+                    </div>
+                    <div>
+                        <input type="range" id="offsetYInput" min="-500" max="500" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="advanced-toggle" id="advancedToggle">Advanced Options</div>
+            <div class="advanced-content" id="advancedContent">
+                <div class="control-group">
+                    <label>Transformations</label>
+                    <div class="btn-group">
+                        <button class="btn-outline" id="flipHBtn">Flip H</button>
+                        <button class="btn-outline" id="flipVBtn">Flip V</button>
+                        <button class="btn-outline" id="rotate90Btn">Rotate 90°</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Rotation <span class="control-value" id="rotateValueDisplay">0</span>°</label>
+                    <input type="range" id="rotateInput" min="0" max="360" value="0">
+                </div>
+
+                <div class="control-group">
+                    <label>Brightness <span class="control-value" id="brightnessValue">100</span>%</label>
+                    <input type="range" id="brightnessInput" min="0" max="200" value="100">
+                </div>
+
+                <div class="control-group">
+                    <label>Contrast <span class="control-value" id="contrastValue">100</span>%</label>
+                    <input type="range" id="contrastInput" min="0" max="200" value="100">
+                </div>
+
+                <div class="control-group">
+                    <label>
+                        Transparency Grid
+                        <input type="checkbox" id="checkerboardToggle" checked>
+                    </label>
+                </div>
+            </div>
+
+            <button id="downloadBtn" class="btn-primary" style="margin-top: 1rem;">Download Circle PNG</button>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="../global.js"></script>
+</body>
+
+</html>

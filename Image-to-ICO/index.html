@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!-- Author: Pawan Simha -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Pawan Simha">
+    <link rel="canonical" href="https://hagrid.tools/Image-to-ICO/index.html">
+    <meta name="description"
+        content="Create professional favicons and ICO files with custom sizes. Perfect for web developers and designers.">
+    <meta property="og:title" content="Image to ICO Converter | Hagrid">
+    <meta property="og:description"
+        content="Convert images to ICO format easily. Create multi-size icons for websites and apps in seconds.">
+    <meta property="og:image" content="../images/logo.png">
+    <meta property="og:url" content="https://hagrid.tools/Image-to-ICO/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#212121">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="manifest" href="../manifest.json">
+    <title>Image to ICO Converter | Hagrid</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a href="../index.html" class="nav-brand">
+            <img src="../images/logo.png" alt="Hagrid Logo">
+            <span>Hagrid</span>
+        </a>
+        <div class="nav-links-right">
+            <a href="../index.html" class="nav-link">Home</a>
+            <button class="theme-toggle" id="themeToggle">
+                <span class="toggle-icon sun-icon">☀︎</span>
+                <span class="toggle-icon moon-icon">☾</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <section class="tool-workspace">
+            <!-- Workspace Content -->
+            <div class="preview-card" id="dropZone">
+                <div class="preview-main">
+                    <div id="uploadPrompt">
+                        <span class="upload-icon">📁</span>
+                        <p>Click or drag image here</p>
+                        <p class="upload-hint">PNG, JPEG, WEBP, SVG, HEIC, GIF, TIFF, BMP</p>
+                    </div>
+                    <div id="previewWrapper" style="display: none;">
+                        <canvas id="canvas" style="display: none;"></canvas>
+                        <div id="canvasPreview" class="canvas-preview"></div>
+                        <div id="cropOverlay" class="crop-overlay"></div>
+                    </div>
+                </div>
+                <div class="preview-footer" id="fileInfo">No image selected</div>
+            </div>
+        </section>
+
+        <!-- Right Side: Controls -->
+        <aside class="tool-sidebar">
+            <div class="sidebar-header">
+                <h2>Image to ICO Converter</h2>
+                <p>Convert images to high-quality ICO files with custom sizes and rounded corners.</p>
+            </div>
+            <!-- ... rest of controls ... -->
+            <!-- Aspect Ratio Section -->
+            <div class="control-group">
+                <label>Aspect Ratio</label>
+                <div class="ratio-grid">
+                    <button class="ratio-btn active" data-ratio="free">Free-form</button>
+                    <button class="ratio-btn" data-ratio="original">Original</button>
+                    <button class="ratio-btn" data-ratio="1:1">Square (1:1)</button>
+                </div>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="resizeToRatio"> Resize to aspect ratio instead of cropping
+                </label>
+            </div>
+
+            <!-- Transform Section -->
+            <div class="control-group">
+                <label>Rotate or Flip</label>
+                <div class="tool-row">
+                    <button class="icon-btn" id="rotateCCW" title="Rotate CCW">↺</button>
+                    <button class="icon-btn" id="rotateCW" title="Rotate CW">↻</button>
+                    <button class="icon-btn" id="flipH" title="Flip Horizontal">↔</button>
+                    <button class="icon-btn" id="flipV" title="Flip Vertical">↕</button>
+                    <button class="icon-btn" id="toggleGrid" title="Show Grid">#</button>
+                </div>
+            </div>
+
+            <!-- Coordinates & Dimensions -->
+            <div class="control-group">
+                <label>Coordinates & Dimensions</label>
+                <div class="input-grid">
+                    <div class="input-item">
+                        <span>Left</span>
+                        <input type="number" id="coordLeft" value="0">
+                    </div>
+                    <div class="input-item">
+                        <span>Top</span>
+                        <input type="number" id="coordTop" value="0">
+                    </div>
+                    <div class="input-item">
+                        <span>Width</span>
+                        <input type="number" id="dimWidth" value="0">
+                    </div>
+                    <div class="input-item">
+                        <span>Height</span>
+                        <input type="number" id="dimHeight" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Icon Sizes Section -->
+            <div class="control-group">
+                <label>Icon Sizes</label>
+                <div class="size-grid" id="sizeGrid">
+                    <label><input type="checkbox" value="16" checked> 16x16</label>
+                    <label><input type="checkbox" value="24" checked> 24x24</label>
+                    <label><input type="checkbox" value="32" checked> 32x32</label>
+                    <label><input type="checkbox" value="48" checked> 48x48</label>
+                    <label><input type="checkbox" value="64" checked> 64x64</label>
+                    <label><input type="checkbox" value="96" checked> 96x96</label>
+                    <label><input type="checkbox" value="128" checked> 128x128</label>
+                    <label><input type="checkbox" value="256" checked> 256x256</label>
+                    <label><input type="checkbox" value="512"> 512x512</label>
+                </div>
+                <div class="custom-size-row">
+                    <input type="number" id="customSize" placeholder="Add size (px)">
+                    <button id="addSizeBtn" class="secondary-btn">+</button>
+                </div>
+            </div>
+
+            <!-- Rounded Corners & Background -->
+            <div class="control-group">
+                <label>Rounded Corners & Background</label>
+                <div class="slider-container">
+                    <input type="range" id="cornerSlider" min="0" max="50" value="0">
+                    <span id="cornerValue">0%</span>
+                </div>
+                <div class="shape-buttons">
+                    <button class="secondary-btn" id="shapeSquare">Square</button>
+                    <button class="secondary-btn" id="shapeCircle">Circle</button>
+                </div>
+                <div class="color-picker-row">
+                    <span>Background</span>
+                    <input type="color" id="bgColor" value="#ffffff">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="bgTransparent" checked> Transparent
+                    </label>
+                </div>
+            </div>
+
+            <!-- Image Format -->
+            <div class="control-group">
+                <label>Internal Image Format</label>
+                <select id="internalFormat">
+                    <option value="png-32">PNG 32-bit (Alpha Support)</option>
+                    <option value="bmp-32">BMP 32-bit (Alpha Support)</option>
+                    <option value="bmp-24">BMP 24-bit (True Color)</option>
+                    <option value="bmp-8">BMP 8-bit (256 Colors)</option>
+                    <option value="bmp-4">BMP 4-bit (16 Colors)</option>
+                </select>
+                <p class="hint-text">Note: >256px entries are always stored as PNG.</p>
+            </div>
+
+            <!-- File Name & Action -->
+            <div class="control-group">
+                <label>File Name</label>
+                <input type="text" id="fileName" placeholder="favicon">
+                <button class="primary-btn mt-1" id="generateBtn">Generate ICO</button>
+            </div>
+            </div>
+            </div>
+
+            <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+                <div class="loader"></div>
+                <p>Generating your ICO file...</p>
+            </div>
+    </main>
+
+    <input type="file" id="imageInput" accept="image/*" style="display: none;">
+    <script src="../global.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

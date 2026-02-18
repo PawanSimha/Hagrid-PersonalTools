@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!-- Author: Pawan Simha -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Pawan Simha">
+    <link rel="canonical" href="https://hagrid.tools/Image-Compressor/index.html">
+    <meta name="description"
+        content="Fast and private image compression. Reduce file size without losing quality. Optimized for web developers.">
+    <meta property="og:title" content="Image Compressor | Hagrid">
+    <meta property="og:description"
+        content="Reduce image file size instantly while maintaining quality. 100% private, browser-based compression.">
+    <meta property="og:image" content="../images/logo.png">
+    <meta property="og:url" content="https://hagrid.tools/Image-Compressor/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#212121">
+    <title>Image Compressor | Hagrid</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="top-nav" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-brand" aria-label="Hagrid Home">
+            <img src="../images/logo.png" alt="Hagrid Logo">
+            <span>Hagrid</span>
+        </a>
+        <div class="nav-links-right">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../index.html#tools" class="nav-link">Tools</a>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+                <span class="toggle-icon sun-icon">☀︎</span>
+                <span class="toggle-icon moon-icon">☾</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <section class="tool-workspace">
+            <div class="canvas-container">
+                <canvas id="canvas" style="max-width: 100%; max-height: 80vh; display: none;"></canvas>
+                <div id="previewContainer"
+                    style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; width: 100%;">
+                    <p id="uploadPrompt" style="color: var(--text-secondary);">Upload an image to start compressing</p>
+                    <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+                        <div style="text-align: center;">
+                            <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem;">Original</p>
+                            <img id="originalPreview"
+                                style="max-width: 300px; max-height: 300px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: none;">
+                            <p id="originalSize"
+                                style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;"></p>
+                        </div>
+                        <div style="text-align: center;">
+                            <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem;">Compressed</p>
+                            <img id="compressedPreview"
+                                style="max-width: 300px; max-height: 300px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: none;">
+                            <p id="compressedSize"
+                                style="font-size: 0.8rem; color: var(--primary-color); font-weight: 600; margin-top: 0.5rem;">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="tool-sidebar">
+            <div class="sidebar-header">
+                <h2>Image Compressor</h2>
+                <p>Reduce file size without quality loss</p>
+            </div>
+
+            <div class="control-group">
+                <label>Upload Image</label>
+                <div class="drop-zone" id="dropZone">
+                    <span class="drop-icon">📁</span>
+                    <p>Drag and drop image or upload image</p>
+                    <input type="file" id="imageInput" accept="image/jpeg, image/png, image/webp" />
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Quality <span class="control-value" id="qualityValue">80</span>%</label>
+                <input type="range" id="qualityInput" min="1" max="100" value="80">
+                <p style="font-size: 0.75rem; color: var(--text-secondary);">Lower quality reduces file size more.</p>
+            </div>
+
+            <div class="control-group">
+                <label>Target Format</label>
+                <select id="formatSelect">
+                    <option value="image/jpeg">JPEG (Best for photos)</option>
+                    <option value="image/webp">WebP (Best compression)</option>
+                    <option value="image/png">PNG (Lossless/Transparent)</option>
+                </select>
+            </div>
+
+            <div class="advanced-toggle" id="advancedToggle">Advanced Options</div>
+            <div class="advanced-content" id="advancedContent">
+                <div class="control-group">
+                    <label>Transformations</label>
+                    <div class="btn-group">
+                        <button class="btn-outline" id="flipHBtn">Flip H</button>
+                        <button class="btn-outline" id="flipVBtn">Flip V</button>
+                        <button class="btn-outline" id="rotate90Btn">Rotate 90°</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Brightness <span class="control-value" id="brightnessValue">100</span>%</label>
+                    <input type="range" id="brightnessInput" min="0" max="200" value="100">
+                </div>
+
+                <div class="control-group">
+                    <label>Contrast <span class="control-value" id="contrastValue">100</span>%</label>
+                    <input type="range" id="contrastInput" min="0" max="200" value="100">
+                </div>
+            </div>
+
+            <button id="downloadBtn" class="btn-primary" style="margin-top: 1rem;">Download Compressed Image</button>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="../global.js"></script>
+</body>
+
+</html>

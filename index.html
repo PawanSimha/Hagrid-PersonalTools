@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!-- Author: Pawan Simha -->
+<!--
+    Hagrid — Simple Developer Utilities
+    Author: Pawan Simha
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Pawan Simha">
+    <link rel="canonical" href="https://hagrid.tools/">
+    <meta name="description"
+        content="Hagrid — A collection of high-quality, lightweight AI tools for image backgrounds removal, enhancement, and compression. Built for developers.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hagrid.tools/">
+    <meta property="og:title" content="Hagrid | Simple Developer Utilities">
+    <meta property="og:description"
+        content="AI-powered image processing tools including background removal, enhancement, and compression. No ads, no bloat.">
+    <meta property="og:image" content="images/logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hagrid.tools/">
+    <meta property="twitter:title" content="Hagrid | Simple Developer Utilities">
+    <meta property="twitter:description"
+        content="AI-powered image processing tools for developers. Fast, private, and simple.">
+    <meta property="twitter:image" content="images/logo.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Hagrid Utilities",
+      "operatingSystem": "Web",
+      "applicationCategory": "MultimediaApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Pawan Simha"
+      },
+      "description": "A collection of AI/ML powered image processing utilities including background removal and quality enhancement."
+    }
+    </script>
+
+    <title>Hagrid | Simple Developer Utilities</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#212121">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body class="homepage">
+    <!-- Top Navigation -->
+    <nav class="top-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-brand" aria-label="Hagrid Home">
+            <img src="images/logo.png" alt="Hagrid Logo">
+            <span>Hagrid</span>
+        </a>
+        <div class="nav-links-right">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contacts</a>
+            <a href="#tools" class="nav-link">Tools</a>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+                <span class="toggle-icon sun-icon">☀︎</span>
+                <span class="toggle-icon moon-icon">☾</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Centered Hero: Logo + Search -->
+    <main class="search-hero" id="searchHero">
+        <img src="images/logo.png" alt="Hagrid Logo" class="hero-logo-large" loading="eager">
+        <div class="search-wrapper">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                <path
+                    d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                    fill="currentColor" />
+            </svg>
+            <input type="text" id="searchInput" class="search-bar" placeholder="Search tools..." autocomplete="off"
+                aria-label="Search tools">
+        </div>
+    </main>
+
+    <!-- Tools Grid -->
+    <section id="tools" class="tools-section">
+        <div class="tools-grid">
+            <!-- Image Compressor -->
+            <a href="Image-Compressor/index.html" class="tool-card" data-tool="Image Compressor"
+                aria-label="Open Image Compressor tool">
+                <div class="tool-card-icon" aria-hidden="true">📉</div>
+                <div class="tool-card-body">
+                    <h3>Image Compressor</h3>
+                    <p>Reduce file size instantly while maintaining quality.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Format Converter -->
+            <a href="Format-Converter/index.html" class="tool-card" data-tool="Format Converter"
+                aria-label="Open Format Converter tool">
+                <div class="tool-card-icon" aria-hidden="true">🔄</div>
+                <div class="tool-card-body">
+                    <h3>Format Converter</h3>
+                    <p>Change images between PNG, JPG, and WebP formats instantly.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Image to ICO -->
+            <a href="Image-to-ICO/index.html" class="tool-card" data-tool="Image to ICO Converter"
+                aria-label="Open Image to ICO Converter tool">
+                <div class="tool-card-icon" aria-hidden="true">🖼️</div>
+                <div class="tool-card-body">
+                    <h3>Image to ICO</h3>
+                    <p>Convert images to ICO format with custom sizes and styles.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Background Remover -->
+            <!-- Password Generator -->
+            <a href="Password-Generator/index.html" class="tool-card" data-tool="Password Generator"
+                aria-label="Open Password Generator tool">
+                <div class="tool-card-icon" aria-hidden="true">🔐</div>
+                <div class="tool-card-body">
+                    <h3>Password Generator</h3>
+                    <p>Generate strong, secure passwords instantly.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Image Enhancer -->
+            <!-- JSON Formatter -->
+            <a href="JSON-Formatter/index.html" class="tool-card" data-tool="JSON Formatter & Validator"
+                aria-label="Open JSON Formatter tool">
+                <div class="tool-card-icon" aria-hidden="true">📝</div>
+                <div class="tool-card-body">
+                    <h3>JSON Formatter</h3>
+                    <p>Validate, format, and minify JSON data.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Aspect Ratio Cropper -->
+            <a href="Aspect-Ratio-Cropper/index.html" class="tool-card" data-tool="Aspect Ratio Cropper"
+                aria-label="Open Aspect Ratio Cropper tool">
+                <div class="tool-card-icon" aria-hidden="true">📏</div>
+                <div class="tool-card-body">
+                    <h3>Aspect Ratio Cropper</h3>
+                    <p>Crop images precisely for YouTube, Instagram, and more.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Privacy Blur -->
+            <a href="Privacy-Blur/index.html" class="tool-card" data-tool="Privacy Blur"
+                aria-label="Open Privacy Blur tool">
+                <div class="tool-card-icon" aria-hidden="true">⬛</div>
+                <div class="tool-card-body">
+                    <h3>Privacy Blur</h3>
+                    <p>Hide passwords, faces, or sensitive text in screenshots.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- QR Generator -->
+            <a href="QR-Generator/index.html" class="tool-card" data-tool="QR Code Generator"
+                aria-label="Open QR Code Generator tool">
+                <div class="tool-card-icon" aria-hidden="true">📱</div>
+                <div class="tool-card-body">
+                    <h3>QR Code Generator</h3>
+                    <p>Create custom QR codes for URLs or text instantly.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Palette Extractor -->
+            <a href="Palette-Extractor/index.html" class="tool-card" data-tool="Palette Extractor"
+                aria-label="Open Palette Extractor tool">
+                <div class="tool-card-icon" aria-hidden="true">🎨</div>
+                <div class="tool-card-body">
+                    <h3>Palette Extractor</h3>
+                    <p>Extract dominant colors from any image for your design.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Border Radius Cropper -->
+            <a href="Border-Radius/index.html" class="tool-card" data-tool="Border Radius Cropper"
+                aria-label="Open Border Radius Cropper tool">
+                <div class="tool-card-icon" aria-hidden="true">✂️</div>
+                <div class="tool-card-body">
+                    <h3>Border Radius Cropper</h3>
+                    <p>Adjust rounded corners, crop, and resize images.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Circle Crop -->
+            <a href="Circle-Crop/index.html" class="tool-card" data-tool="Circle Crop"
+                aria-label="Open Circle Crop tool">
+                <div class="tool-card-icon" aria-hidden="true">⭕</div>
+                <div class="tool-card-body">
+                    <h3>Circle Crop</h3>
+                    <p>Crop any image into a perfect circle for profiles.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Image Inverter -->
+            <a href="Image-Inverter/index.html" class="tool-card" data-tool="Image Inverter"
+                aria-label="Open Image Inverter tool">
+                <div class="tool-card-icon" aria-hidden="true">🎭</div>
+                <div class="tool-card-body">
+                    <h3>Image Inverter</h3>
+                    <p>Create a negative effect by inverting all colors in your image.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Image to PDF -->
+            <a href="Image-to-PDF/index.html" class="tool-card" data-tool="Image to PDF Converter"
+                aria-label="Open Image to PDF Converter tool">
+                <div class="tool-card-icon" aria-hidden="true">📄</div>
+                <div class="tool-card-body">
+                    <h3>Image to PDF</h3>
+                    <p>Convert multiple images into a professional PDF document.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- PDF to Image -->
+            <a href="PDF-to-Image/index.html" class="tool-card" data-tool="PDF to Image Exporter"
+                aria-label="Open PDF to Image Exporter tool">
+                <div class="tool-card-icon" aria-hidden="true">🖼️</div>
+                <div class="tool-card-body">
+                    <h3>PDF to Image</h3>
+                    <p>Extract and render PDF pages as high-quality images.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Bulk Converter -->
+            <a href="Bulk-Converter/index.html" class="tool-card" data-tool="Bulk Image Converter"
+                aria-label="Open Bulk Image Converter tool">
+                <div class="tool-card-icon" aria-hidden="true">📦</div>
+                <div class="tool-card-body">
+                    <h3>Bulk Image Converter</h3>
+                    <p>Batch-convert dozens of images to different formats at once.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Pencil Sketch -->
+            <a href="Pencil-Sketch/index.html" class="tool-card" data-tool="Pencil Sketch Filter"
+                aria-label="Open Pencil Sketch Filter tool">
+                <div class="tool-card-icon" aria-hidden="true">✏️</div>
+                <div class="tool-card-body">
+                    <h3>Pencil Sketch</h3>
+                    <p>Convert your photos into beautiful pencil drawings.</p>
+                </div>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <h2>About Hagrid</h2>
+        <p>Hagrid is a simple, personal workspace of lightweight developer utilities — built from scratch by
+            <strong>Pawan Simha</strong>, an MCA (Master of Computer Science) student. What started as a side project
+            to sharpen web development skills quickly grew into a handy toolkit for everyday image processing tasks.
+        </p>
+        <p style="margin-top: 0.75rem;">No ads, no sign-ups, no bloat — just fast, accessible tools that do exactly
+            what they say. Built with vanilla HTML, CSS, and JavaScript, because simplicity is the ultimate
+            sophistication.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact</h2>
+        <p>Have feedback or suggestions? Reach out on our social channels or message me directly.</p>
+        <div class="contact-links">
+            <a href="contact.html">Contact Me</a>
+            <a href="https://x.com/iampawansimha" target="_blank">Twitter</a>
+            <a href="https://github.com/PawanSimha" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/pawansimha/" target="_blank">LinkedIn</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="contact.html">Contact</a>
+            <a href="https://x.com/iampawansimha" target="_blank">Twitter</a>
+            <a href="https://github.com/PawanSimha" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/pawansimha/" target="_blank">LinkedIn</a>
+        </div>
+        <div class="footer-copy">
+            <span>&copy; 2026 Hagrid</span>
+            <span class="footer-separator">•</span>
+            <span>Simple. Private. Powerful.</span>
+            <span class="footer-separator">•</span>
+            <span>by <strong>Pawan Simha</strong></span>
+        </div>
+    </footer>
+
+    <script src="global.js"></script>
+</body>
+
+</html>

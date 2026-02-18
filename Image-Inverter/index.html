@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!-- Author: Pawan Simha -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Pawan Simha">
+    <link rel="canonical" href="https://hagrid.tools/Image-Inverter/index.html">
+    <meta name="description"
+        content="Invert image colors or select specific channels for creative effects. Fast and private image processing.">
+    <meta property="og:title" content="Image Inverter | Hagrid">
+    <meta property="og:description"
+        content="Create striking visual effects by inverting colors. High-precision color manipulation.">
+    <meta property="og:image" content="../images/logo.png">
+    <meta property="og:url" content="https://hagrid.tools/Image-Inverter/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#212121">
+    <title>Image Inverter | Hagrid</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="top-nav" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-brand" aria-label="Hagrid Home">
+            <img src="../images/logo.png" alt="Hagrid Logo">
+            <span>Hagrid</span>
+        </a>
+        <div class="nav-links-right">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../index.html#tools" class="nav-link">Tools</a>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+                <span class="toggle-icon sun-icon">☀︎</span>
+                <span class="toggle-icon moon-icon">☾</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <section class="tool-workspace">
+            <div class="canvas-container" style="flex-direction: column; gap: 2rem;">
+                <div id="loadingOverlay"
+                    style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.8); z-index: 10; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+                    <div class="spinner"
+                        style="width: 40px; height: 40px; border: 4px solid var(--border-color); border-top-color: var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite;">
+                    </div>
+                    <p style="font-weight: 600; color: var(--text-primary);">Inverting Colors...</p>
+                </div>
+
+                <div id="previewContainer"
+                    style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; width: 100%;">
+                    <div style="text-align: center;">
+                        <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem;" id="labelBefore"
+                            style="display: none;">Original</p>
+                        <img id="imageBefore"
+                            style="max-width: 350px; max-height: 350px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: none;"
+                            alt="Original image preview">
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem;" id="labelAfter"
+                            style="display: none;">Inverted Result</p>
+                        <img id="imageAfter"
+                            style="max-width: 350px; max-height: 350px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: none;"
+                            alt="Inverted result preview">
+                    </div>
+                </div>
+                <p id="uploadPrompt" style="color: var(--text-secondary);">Upload an image to start inverting colors</p>
+            </div>
+        </section>
+
+        <aside class="tool-sidebar">
+            <div class="sidebar-header">
+                <h2>Image Inverter</h2>
+                <p>Advanced color inversion with selective channels and intensity control</p>
+            </div>
+
+            <div class="control-group">
+                <label>Upload Image</label>
+                <div class="drop-zone" id="dropZone">
+                    <span class="drop-icon">📁</span>
+                    <p>Drag and drop image or upload image</p>
+                    <input type="file" id="fileInput" accept="image/*" />
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Inversion Amount <span class="control-value" id="amountValue">100</span>%</label>
+                <input type="range" id="amountInput" min="0" max="100" value="100">
+                <p style="font-size: 0.75rem; color: var(--text-secondary);">Blends the inverted image with the
+                    original.</p>
+            </div>
+
+            <div class="control-group">
+                <label>Active Channels</label>
+                <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                    <label
+                        style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; cursor: pointer;">
+                        <input type="checkbox" id="chanR" checked> Red
+                    </label>
+                    <label
+                        style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; cursor: pointer;">
+                        <input type="checkbox" id="chanG" checked> Green
+                    </label>
+                    <label
+                        style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; cursor: pointer;">
+                        <input type="checkbox" id="chanB" checked> Blue
+                    </label>
+                </div>
+            </div>
+
+            <div class="advanced-toggle" id="advancedToggle">Advanced Transformations</div>
+            <div class="advanced-content" id="advancedContent">
+                <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 1rem;">Note: Transformations
+                    are applied locally for speed.</p>
+                <div class="control-group">
+                    <label>Flip & Rotate</label>
+                    <div class="btn-group">
+                        <button class="btn-outline" id="flipHBtn">Flip H</button>
+                        <button class="btn-outline" id="flipVBtn">Flip V</button>
+                        <button class="btn-outline" id="rotate90Btn">Rotate 90°</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-actions" style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                <button id="processBtn" class="btn-primary" disabled style="width: 100%;">Invert Image</button>
+                <button id="downloadBtn" class="btn-primary" style="display: none; width: 100%;">Download
+                    Result</button>
+            </div>
+        </aside>
+    </main>
+
+    <style>
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+    <script src="../global.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

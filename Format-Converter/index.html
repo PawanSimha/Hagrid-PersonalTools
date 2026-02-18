@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- Author: Pawan Simha -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Pawan Simha">
+    <link rel="canonical" href="https://hagrid.tools/Format-Converter/index.html">
+    <meta name="description"
+        content="Convert images between JPG, PNG, WEBP, and more instantly. Fast, private, and high-quality image conversion.">
+    <meta property="og:title" content="Format Converter | Hagrid">
+    <meta property="og:description"
+        content="Switch image formats in seconds. Supports PNG, JPG, and WebP with zero server uploads.">
+    <meta property="og:image" content="../images/logo.png">
+    <meta property="og:url" content="https://hagrid.tools/Format-Converter/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#212121">
+    <title>Format Converter | Hagrid</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="top-nav" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-brand" aria-label="Hagrid Home">
+            <img src="../images/logo.png" alt="Hagrid Logo">
+            <span>Hagrid</span>
+        </a>
+        <div class="nav-links-right">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../index.html#tools" class="nav-link">Tools</a>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+                <span class="toggle-icon sun-icon">☀︎</span>
+                <span class="toggle-icon moon-icon">☾</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <section class="tool-workspace">
+            <div class="canvas-container">
+                <canvas id="canvas" style="display: none;"></canvas>
+                <div id="previewArea" style="text-align: center;">
+                    <p id="uploadPrompt" style="color: var(--text-secondary);">Upload an image to convert its format</p>
+                    <img id="imagePreview"
+                        style="max-width: 100%; max-height: 80vh; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: none;">
+                    <p id="fileInfo" style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem;"></p>
+                </div>
+            </div>
+        </section>
+
+        <aside class="tool-sidebar">
+            <div class="sidebar-header">
+                <h2>Format Converter</h2>
+                <p>Change image format in seconds</p>
+            </div>
+
+            <div class="control-group">
+                <label>Upload Image</label>
+                <div class="drop-zone" id="dropZone">
+                    <span class="drop-icon">📁</span>
+                    <p>Drag and drop image or upload image</p>
+                    <input type="file" id="imageInput" accept="image/*" />
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Convert To</label>
+                <select id="formatSelect">
+                    <option value="image/png">PNG (.png)</option>
+                    <option value="image/jpeg">JPEG (.jpg)</option>
+                    <option value="image/webp">WebP (.webp)</option>
+                </select>
+            </div>
+
+            <div class="control-group" id="qualityControl" style="display: none;">
+                <label>Quality <span class="control-value" id="qualityValue">90</span>%</label>
+                <input type="range" id="qualityInput" min="1" max="100" value="90">
+            </div>
+
+            <div class="advanced-toggle" id="advancedToggle">Advanced Options</div>
+            <div class="advanced-content" id="advancedContent">
+                <div class="control-group">
+                    <label>Transformations</label>
+                    <div class="btn-group">
+                        <button class="btn-outline" id="flipHBtn">Flip H</button>
+                        <button class="btn-outline" id="flipVBtn">Flip V</button>
+                        <button class="btn-outline" id="rotate90Btn">Rotate 90°</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Brightness <span class="control-value" id="brightnessValue">100</span>%</label>
+                    <input type="range" id="brightnessInput" min="0" max="200" value="100">
+                </div>
+
+                <div class="control-group">
+                    <label>Contrast <span class="control-value" id="contrastValue">100</span>%</label>
+                    <input type="range" id="contrastInput" min="0" max="200" value="100">
+                </div>
+            </div>
+
+            <button id="downloadBtn" class="btn-primary" style="margin-top: 1rem;">Download Converted File</button>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="../global.js"></script>
+</body>
+
+</html>

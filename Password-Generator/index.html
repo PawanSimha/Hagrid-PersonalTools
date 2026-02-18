@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!-- Author: Pawan Simha -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Pawan Simha">
+    <link rel="canonical" href="https://hagrid.tools/Password-Generator/index.html">
+    <meta name="description"
+        content="Generate strong, secure passwords instantly with custom length and character settings. No server storage.">
+    <meta property="og:title" content="Secure Password Generator | Hagrid">
+    <meta property="og:description"
+        content="Create unhackable passwords in seconds. Client-side only for maximum security.">
+    <meta property="og:image" content="../images/logo.png">
+    <meta property="og:url" content="https://hagrid.tools/Password-Generator/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#212121">
+    <title>Secure Password Generator | Hagrid</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .password-display {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .password-text {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            word-break: break-all;
+            font-weight: 500;
+        }
+
+        .strength-meter {
+            height: 4px;
+            background: var(--border-color);
+            margin-top: 1rem;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .strength-bar {
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s, background-color 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-brand" aria-label="Hagrid Home">
+            <img src="../images/logo.png" alt="Hagrid Logo">
+            <span>Hagrid</span>
+        </a>
+        <div class="nav-links-right">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../index.html#tools" class="nav-link">Tools</a>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+                <span class="toggle-icon sun-icon">☀︎</span>
+                <span class="toggle-icon moon-icon">☾</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <section class="tool-workspace">
+            <div style="width: 100%; max-width: 600px;">
+                <div class="password-display">
+                    <span id="passwordOutput" class="password-text">Click Generate</span>
+                    <button id="copyBtn" class="btn-outline" aria-label="Copy Password">
+                        📋 Copy
+                    </button>
+                </div>
+                <!-- Strength Meter -->
+                <div style="margin-top: -1.5rem; margin-bottom: 2rem;">
+                    <div class="strength-meter">
+                        <div id="strengthBar" class="strength-bar"></div>
+                    </div>
+                    <p id="strengthText"
+                        style="text-align: right; font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                        Strength</p>
+                </div>
+            </div>
+        </section>
+
+        <aside class="tool-sidebar">
+            <div class="sidebar-header">
+                <h2>Password Generator</h2>
+                <p>Create secure, random passwords.</p>
+            </div>
+
+            <div class="control-group">
+                <label>Length: <span class="control-value" id="lengthValue">16</span></label>
+                <input type="range" id="lengthInput" min="4" max="64" value="16">
+            </div>
+
+            <div class="control-group">
+                <label>
+                    Uppercase (A-Z)
+                    <input type="checkbox" id="uppercaseCb" checked>
+                </label>
+            </div>
+
+            <div class="control-group">
+                <label>
+                    Lowercase (a-z)
+                    <input type="checkbox" id="lowercaseCb" checked>
+                </label>
+            </div>
+
+            <div class="control-group">
+                <label>
+                    Numbers (0-9)
+                    <input type="checkbox" id="numbersCb" checked>
+                </label>
+            </div>
+
+            <div class="control-group">
+                <label>
+                    Symbols (!@#$)
+                    <input type="checkbox" id="symbolsCb" checked>
+                </label>
+            </div>
+
+            <button id="generateBtn" class="btn-primary" style="margin-top: 1rem;">Generate Password</button>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="../global.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+/* Author: Pawan Simha */
+.canvas-container {
+    background: transparent;
+    box-shadow: var(--shadow-md);
+    border-radius: 50%;
+    overflow: hidden;
+    line-height: 0;
+    max-width: 90%;
+}
+
+canvas {
+    max-width: 100%;
+    max-height: 75vh;
+    display: block;
+}
+
+input[type="file"] {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 800px) {
+    .tool-workspace {
+        padding: 1rem;
+    }
+}

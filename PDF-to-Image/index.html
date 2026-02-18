@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- Author: Pawan Simha -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Pawan Simha">
+    <link rel="canonical" href="https://hagrid.tools/PDF-to-Image/index.html">
+    <meta name="description"
+        content="Export PDF pages as individual PNG or JPG images instantly. 100% private, secure, and browser-based conversion.">
+    <meta property="og:title" content="PDF to Image | Hagrid">
+    <meta property="og:description"
+        content="Turn PDF pages into images in seconds. No server uploads, high-quality output for every page.">
+    <meta property="og:image" content="../images/logo.png">
+    <meta property="og:url" content="https://hagrid.tools/PDF-to-Image/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#212121">
+    <title>PDF to Image | Hagrid</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="top-nav" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-brand" aria-label="Hagrid Home">
+            <img src="../images/logo.png" alt="Hagrid Logo">
+            <span>Hagrid</span>
+        </a>
+        <div class="nav-links-right">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../index.html#tools" class="nav-link">Tools</a>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+                <span class="toggle-icon sun-icon">☀︎</span>
+                <span class="toggle-icon moon-icon">☾</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <section class="tool-workspace">
+            <div class="canvas-container" style="flex-direction: column; gap: 2rem;">
+                <div id="loadingOverlay"
+                    style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.8); z-index: 10; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+                    <div class="spinner"
+                        style="width: 40px; height: 40px; border: 4px solid var(--border-color); border-top-color: var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite;">
+                    </div>
+                    <p style="font-weight: 600; color: var(--text-primary);">Exporting PDF Pages as Images...</p>
+                </div>
+
+                <div id="previewArea" style="text-align: center;">
+                    <img id="pdfIcon" src="../images/logo.png"
+                        style="width: 80px; opacity: 0.2; display: block; margin: 0 auto 1rem;" alt="PDF Icon">
+                    <p id="fileName"
+                        style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; display: none;"></p>
+                    <p id="uploadPrompt" style="color: var(--text-secondary);">Select a PDF file to export pages as
+                        images</p>
+                </div>
+            </div>
+        </section>
+
+        <aside class="tool-sidebar">
+            <div class="sidebar-header">
+                <h2>PDF to Image</h2>
+                <p>Render every page of your PDF as high-quality PNG, JPG, or WebP images.</p>
+            </div>
+
+            <div class="control-group">
+                <label>Upload PDF</label>
+                <div class="drop-zone" id="dropZone">
+                    <span class="drop-icon">📄</span>
+                    <p>Drag and drop PDF or click to search</p>
+                    <input type="file" id="fileInput" accept="application/pdf" />
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Export Format</label>
+                <select id="formatSelect">
+                    <option value="png">PNG (Lossless)</option>
+                    <option value="jpeg">JPEG (Smaller file size)</option>
+                    <option value="webp">WebP (Modern compression)</option>
+                </select>
+            </div>
+
+            <div class="tool-actions" style="margin-top: 2rem;">
+                <button id="processBtn" class="btn-primary" disabled style="width: 100%;">Export Images</button>
+            </div>
+        </aside>
+    </main>
+
+    <style>
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+    <script src="../global.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

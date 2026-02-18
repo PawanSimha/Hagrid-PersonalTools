@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- Author: Pawan Simha -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Pawan Simha">
+    <link rel="canonical" href="https://hagrid.tools/Aspect-Ratio-Cropper/index.html">
+    <meta name="description"
+        content="Crop images to social media aspect ratios with precision zoom and rotation controls. Simple and fast.">
+    <meta property="og:title" content="Aspect Ratio Cropper | Hagrid">
+    <meta property="og:description"
+        content="Perfect crops for Instagram, LinkedIn, and Twitter. High-quality image cropping with ease.">
+    <meta property="og:image" content="../images/logo.png">
+    <meta property="og:url" content="https://hagrid.tools/Aspect-Ratio-Cropper/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#212121">
+    <title>Aspect Ratio Cropper | Hagrid</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .crop-overlay {
+            position: absolute;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-brand" aria-label="Hagrid Home">
+            <img src="../images/logo.png" alt="Hagrid Logo">
+            <span>Hagrid</span>
+        </a>
+        <div class="nav-links-right">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../index.html#tools" class="nav-link">Tools</a>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+                <span class="toggle-icon sun-icon">☀︎</span>
+                <span class="toggle-icon moon-icon">☾</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <section class="tool-workspace" id="workspace">
+            <div class="canvas-container" style="position: relative; overflow: hidden;">
+                <canvas id="canvas" style="display: none;"></canvas>
+                <div id="cropOverlay" class="crop-overlay"></div>
+                <img id="imagePreview" style="max-width: 100%; max-height: 80vh; display: none; user-select: none;">
+                <p id="uploadPrompt" style="color: var(--text-secondary);">Upload an image to crop</p>
+            </div>
+        </section>
+
+        <aside class="tool-sidebar">
+            <div class="sidebar-header">
+                <h2>Aspect Ratio Cropper</h2>
+                <p>Perfect crops for social media</p>
+            </div>
+
+            <div class="control-group">
+                <label>Upload Image</label>
+                <div class="drop-zone" id="dropZone">
+                    <span class="drop-icon">📁</span>
+                    <p>Drag and drop image or upload image</p>
+                    <input type="file" id="imageInput" accept="image/*" />
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Aspect Ratio</label>
+                <div class="ratio-grid" id="ratioGrid">
+                    <button class="ratio-card active" data-ratio="1:1">
+                        <div class="ratio-box" style="aspect-ratio: 1/1;"></div>
+                        <span>1:1</span>
+                    </button>
+                    <button class="ratio-card" data-ratio="16:9">
+                        <div class="ratio-box" style="aspect-ratio: 16/9;"></div>
+                        <span>16:9</span>
+                    </button>
+                    <button class="ratio-card" data-ratio="9:16">
+                        <div class="ratio-box" style="aspect-ratio: 9/16;"></div>
+                        <span>9:16</span>
+                    </button>
+                    <button class="ratio-card" data-ratio="4:3">
+                        <div class="ratio-box" style="aspect-ratio: 4/3;"></div>
+                        <span>4:3</span>
+                    </button>
+                    <button class="ratio-card" data-ratio="4:5">
+                        <div class="ratio-box" style="aspect-ratio: 4/5;"></div>
+                        <span>4:5</span>
+                    </button>
+                    <button class="ratio-card" data-ratio="free">
+                        <div class="ratio-box" style="border-style: dashed;"></div>
+                        <span>Free</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Zoom <span class="control-value" id="zoomValue">1.0</span>x</label>
+                <input type="range" id="zoomInput" min="0.1" max="3" step="0.1" value="1">
+            </div>
+
+            <div class="control-group">
+                <label>Positioning (X: <span class="control-value" id="offsetXValue">0</span>px / Y: <span
+                        class="control-value" id="offsetYValue">0</span>px)</label>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                    <input type="range" id="offsetXInput" min="-500" max="500" value="0">
+                    <input type="range" id="offsetYInput" min="-500" max="500" value="0">
+                </div>
+            </div>
+
+            <div class="advanced-toggle" id="advancedToggle">Advanced Options</div>
+            <div class="advanced-content" id="advancedContent">
+                <div class="control-group">
+                    <label>Transformations</label>
+                    <div class="btn-group">
+                        <button class="btn-outline" id="flipHBtn">Flip H</button>
+                        <button class="btn-outline" id="flipVBtn">Flip V</button>
+                        <button class="btn-outline" id="rotate90Btn">Rotate 90°</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Brightness <span class="control-value" id="brightnessValue">100</span>%</label>
+                    <input type="range" id="brightnessInput" min="0" max="200" value="100">
+                </div>
+
+                <div class="control-group">
+                    <label>Contrast <span class="control-value" id="contrastValue">100</span>%</label>
+                    <input type="range" id="contrastInput" min="0" max="200" value="100">
+                </div>
+            </div>
+
+            <button id="downloadBtn" class="btn-primary" style="margin-top: 1rem;">Download Cropped Image</button>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="../global.js"></script>
+</body>
+
+</html>
