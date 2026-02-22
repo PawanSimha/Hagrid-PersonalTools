@@ -1,62 +1,117 @@
-# Hagrid - Professional Developer Utility Suite 🧙‍♂️
+<h1 align="center">
+  <img src="images/logo.png" alt="Logo" width="100"><br>
+  Hagrid - Professional Developer Utility Suite 🧙‍♂️
+</h1>
 
-Hagrid is a high-performance, single-process utility suite featuring 15 professional-grade tools for image processing, document transformation, and AI-powered enhancement!
+<p align="center">
+  <b>A high-performance, single-process utility suite featuring 15 professional-grade tools for image processing, document transformation, and AI-powered enhancement!</b>
+</p>
 
-## Core Features
-- **Lightweight & Fast**: Optimized for speed with zero external API dependencies.
-- **Privacy First**: Local processing for all tools including password generation and data formatting.
-- **Developer Utilities**: Essential tools like JSON formatting and asset generation.
-- **Bulk Processing**: Batch convert images or merge them into PDFs.
-- **SEO & Social Optimized**: Fully indexed with Open Graph and JSON-LD metadata.
-
----
-
-## 🛠️ The Toolkit (15 Utilities)
-1. **Password Generator**: Create secure, strong passwords instantly.
-2. **JSON Formatter**: Validate, beautify, and minify JSON data.
-3. **Image to PDF (Bulk)**: Merge certificates/documents into a single PDF.
-4. **PDF to Image**: Export PDF pages as high-quality images.
-5. **Bulk Image Converter**: Batch-convert dozens of images at once.
-6. **Pencil Sketch Filter**: Professional creative drawings using OpenCV.
-7. **Image Compressor**: Reduce file size with visual quality preservation.
-8. **Format Converter**: Instant PNG/JPG/WebP transformations.
-9. **Image Inverter**: Advanced channel-specific negative effects.
-10. **Aspect Ratio Cropper**: Precise crops for social media.
-11. **Privacy Blur**: Sensitive info protection.
-12. **QR Code Generator**: Instant vector-ready QR codes.
-13. **Palette Extractor**: Design-ready color schemes.
-14. **Border Radius Cropper**: Modern rounded-corner processing.
-15. **Circle Crop**: Perfect profile photo creator.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10+-blue?logo=python" alt="Python">
+  <img src="https://img.shields.io/badge/FastAPI-Production-009688?logo=fastapi" alt="FastAPI">
+  <img src="https://img.shields.io/badge/OpenCV-Computer%20Vision-white?logo=opencv" alt="OpenCV">
+  <img src="https://img.shields.io/badge/Pillow-Imaging-blue" alt="Pillow">
+  <img src="https://img.shields.io/badge/JavaScript-Vanilla-yellow?logo=javascript" alt="JS">
+</p>
 
 ---
 
-## 🚀 How to Use
+## 📌 Overview
 
-### 1. Download & Extract
-*   **From GitHub**: Click the green **"Code"** button and select **"Download ZIP"**.
-*   **Extract**: Right-click the downloaded ZIP and select **"Extract All..."**.
-
-### 2. One-Time Setup
-Before running Hagrid for the first time, you need to install the dependencies:
-1.  Open the extracted folder.
-2.  Double-click **`setup.bat`**. 
-3.  Wait for the terminal to finish installing the dependencies (this takes about 1 minute).
-
-### 3. Run Hagrid
-Simply double-click **`run_hagrid.bat`**. 
-*   This will automatically launch the server.
-*   Your browser will open to **[http://127.0.0.1:8000](http://127.0.0.1:8000)**.
-*   **To Stop**: Close the terminal window.
-
-### 4. (Optional) Desktop Shortcut
-After running `setup.bat`, you will see a file named **`Hagrid`** (Shortcut) in the folder.
-*   You can drag and drop this file to your **Desktop**.
-*   Now you can launch the app directly from your desktop!
+Hagrid is a high-performance, comprehensive developer toolkit designed for speed, privacy, and versatility. Unlike online tools, Hagrid processes everything **locally**, ensuring your data never leaves your machine. It bundles 15+ essential tools into a single, sleek Glassmorphism interface.
 
 ---
 
-## 👨‍💻 Developed By
-**Pawan Simha** — MCA Student & Developer. 
-Built with Python (FastAPI), OpenCV, and Vanilla JavaScript.
+## ✨ Key Features
 
-[Twitter](https://x.com/iampawansimha) • [LinkedIn](https://www.linkedin.com/in/pawansimha/) • [GitHub](https://github.com/PawanSimha)
+- ⚡ **Lightweight & Fast**: Optimized single-process server with zero external API latency.
+- 🔐 **Privacy First**: 100% local processing for sensitive documents and images.
+- 🛠️ **Developer Utilities**: Instant JSON formatting, secure password generation, and QR codes.
+- 🖼️ **Creative Filters**: Professional OpenCV filters like Pencil Sketch and Inversion.
+- 📥 **Document Transformation**: Bulk Image-to-PDF, PDF-to-Image, and high-fidelity compression.
+- 📱 **Fully Responsive**: Immersive UI that works seamlessly across all devices.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **Backend** | Python (FastAPI), Uvicorn |
+| **Logic** | OpenCV, NumPy, Pillow, PyMuPDF |
+| **Frontend** | HTML5, CSS3, Vanilla JavaScript |
+| **Packaging** | PyInstaller (for portability) |
+| **Styling** | Modern Glassmorphism & Immersive Dark Mode |
+
+---
+
+## 📁 Project Structure
+
+```
+Hagrid/
+├── 🖱️ run_hagrid.bat                           # One-click launch
+├── 🛠️ setup.bat                                # Auto-installer (Dependencies)
+├── app.py                                       # FastAPI production backend
+├── requirements.txt                             # Python dependencies
+├── index.html                                   # Main Dashboard
+├── global.js                                    # Core frontend logic
+├── style.css                                    # Immersive global styling
+├── images/
+│   ├── logo.png                                 # Project Branding
+│   └── logo.ico                                 # System Favicon
+└── [Utility Modules]/                           # 15+ Dedicated tool templates
+```
+
+---
+
+## 🚀 Quick Start
+
+### Option 1 — Easy Launch (Windows)
+1. **Double-click `setup.bat`** (Run once to install dependencies).
+2. **Double-click `run_hagrid.bat`** to launch the suite.
+3. Your browser will open **[http://127.0.0.1:8000](http://127.0.0.1:8000)** automatically.
+
+### Option 2 — Manual Installation
+1. **Set up Environment**:
+   ```bash
+   python -m venv .venv
+   .venv\Scripts\activate
+   ```
+2. **Install Requirements**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Start the Suite**:
+   ```bash
+   python app.py
+   ```
+
+---
+
+## 📋 Requirements
+
+```
+fastapi
+uvicorn
+opencv-python
+pillow
+pymupdf
+numpy
+python-multipart
+```
+
+---
+
+## 👤 Author
+
+**Pawan Simha**
+- GitHub: [@PawanSimha](https://github.com/PawanSimha)
+- LinkedIn: [linkedin.com/in/pawansimha](https://linkedin.com/in/pawansimha)
+- X (Twitter): [@iampawansimha](https://x.com/iampawansimha)
+
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
