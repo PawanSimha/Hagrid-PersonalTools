@@ -1,6 +1,6 @@
 # Hagrid - Professional Developer Utility Suite 🧙‍♂️
 
-Hagrid is a high-performance, single-process utility suite featuring 15 professional-grade tools for image processing, document transformation, and AI-powered enhancement.
+Hagrid is a high-performance, single-process utility suite featuring 15 professional-grade tools for image processing, document transformation, and AI-powered enhancement!
 
 ## Core Features
 - **Lightweight & Fast**: Optimized for speed with zero external API dependencies.
