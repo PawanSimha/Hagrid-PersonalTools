@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('channels', activeChannels.join(','));
 
         try {
-            const response = await fetch('/invert-image', {
+            const response = await fetch('/api/image/invert-image', {
                 method: 'POST',
                 body: formData
             });

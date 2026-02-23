@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('intensity', intensityInput.value / 100);
 
         try {
-            const response = await fetch('/pencil-sketch', {
+            const response = await fetch('/api/image/pencil-sketch', {
                 method: 'POST',
                 body: formData
             });

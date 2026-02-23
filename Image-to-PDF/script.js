@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         try {
-            const response = await fetch('/image-to-pdf', {
+            const response = await fetch('/api/doc/image-to-pdf', {
                 method: 'POST',
                 body: formData
             });

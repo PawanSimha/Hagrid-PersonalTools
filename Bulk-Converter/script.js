@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('format', formatSelect.value);
 
         try {
-            const response = await fetch('/bulk-convert', {
+            const response = await fetch('/api/doc/bulk-convert', {
                 method: 'POST',
                 body: formData
             });

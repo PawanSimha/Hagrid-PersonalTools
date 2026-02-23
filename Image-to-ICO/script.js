@@ -306,7 +306,7 @@ generateBtn.addEventListener('click', async () => {
         formData.append('file', blob, 'processed.png');
         formData.append('sizes', selectedSizes.join(','));
 
-        const response = await fetch('/generate-ico', {
+        const response = await fetch('/api/image/generate-ico', {
             method: 'POST',
             body: formData
         });

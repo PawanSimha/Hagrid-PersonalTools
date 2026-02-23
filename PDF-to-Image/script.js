@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('format', formatSelect.value);
 
         try {
-            const response = await fetch('/pdf-to-image', {
+            const response = await fetch('/api/doc/pdf-to-image', {
                 method: 'POST',
                 body: formData
             });
