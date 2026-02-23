@@ -1,4 +1,5 @@
-from fastapi import APIRouter, File, UploadFile, Form, Response, JSONResponse
+from fastapi import APIRouter, File, UploadFile, Form, Response
+from fastapi.responses import JSONResponse
 from typing import List
 from services.pdf_service import process_image_to_pdf, process_pdf_to_image, process_bulk_convert
 from core.logger import get_logger

@@ -1,4 +1,5 @@
-from fastapi import APIRouter, File, UploadFile, Form, Response, JSONResponse
+from fastapi import APIRouter, File, UploadFile, Form, Response
+from fastapi.responses import JSONResponse
 from services.image_service import process_invert_image, process_pencil_sketch, generate_ico_file
 from core.logger import get_logger
 
