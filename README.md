@@ -2,7 +2,7 @@
   <img src="images/logo.png" width="150" alt="Hagrid Logo">
 </p>
 
-<h1 align="center">Hagrid</h1>
+<h1 align="center">Hagrid!</h1>
 <p align="center">
   <strong>Professional Developer Utility Suite</strong><br>
   <em>A high-performance, privacy-focused toolkit leveraging FastAPI and OpenCV to streamline developer workflows.</em>
