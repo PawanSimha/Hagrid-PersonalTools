@@ -1,3 +1,4 @@
+/* Author: Pawan Simha R */
 document.addEventListener('DOMContentLoaded', () => {
     const lengthInput = document.getElementById('lengthInput');
     const lengthValue = document.getElementById('lengthValue');

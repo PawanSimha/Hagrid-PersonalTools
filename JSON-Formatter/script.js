@@ -1,3 +1,4 @@
+/* Author: Pawan Simha R */
 document.addEventListener('DOMContentLoaded', () => {
     const jsonInput = document.getElementById('jsonInput');
     const formatBtn = document.getElementById('formatBtn');

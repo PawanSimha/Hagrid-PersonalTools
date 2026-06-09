@@ -2,79 +2,122 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hagrid.tools/</loc>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hagrid.tools/Image-Compressor/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
     <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://hagrid.tools/Format-Converter/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hagrid.tools/Background-Remover/index.html</loc>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://hagrid.tools/Image-Enhancer/index.html</loc>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://hagrid.tools/Aspect-Ratio-Cropper/index.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hagrid.tools/Privacy-Blur/index.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hagrid.tools/QR-Generator/index.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hagrid.tools/Palette-Extractor/index.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hagrid.tools/Border-Radius/index.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hagrid.tools/Circle-Crop/index.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hagrid.tools/Image-Inverter/index.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hagrid.tools/Image-to-PDF/index.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hagrid.tools/PDF-to-Image/index.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hagrid.tools/Bulk-Converter/index.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hagrid.tools/Pencil-Sketch/index.html</loc>
-    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://hagrid.tools/Image-to-ICO/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
     <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://hagrid.tools/Pencil-Sketch/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://hagrid.tools/Image-Inverter/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://hagrid.tools/Aspect-Ratio-Cropper/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://hagrid.tools/Circle-Crop/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://hagrid.tools/Border-Radius/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://hagrid.tools/Privacy-Blur/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://hagrid.tools/Image-to-PDF/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://hagrid.tools/PDF-to-Image/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://hagrid.tools/Bulk-Converter/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://hagrid.tools/Image-Collage/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://hagrid.tools/Password-Generator/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://hagrid.tools/QR-Generator/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://hagrid.tools/JSON-Formatter/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://hagrid.tools/Palette-Extractor/index.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://hagrid.tools/privacy-policy.html</loc>
-    <priority>0.5</priority>
+    <lastmod>2026-06-09</lastmod>
+    <priority>0.4</priority>
+    <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://hagrid.tools/contact.html</loc>
-    <priority>0.6</priority>
+    <lastmod>2026-06-09</lastmod>
+    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
   </url>
 </urlset>

@@ -1,4 +1,4 @@
-/* Author: Pawan Simha */
+/* Author: Pawan Simha R */
 document.addEventListener('DOMContentLoaded', () => {
     const fileInput = document.getElementById('fileInput');
     const dropZone = document.getElementById('dropZone');
@@ -111,6 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('file', currentFile);
         formData.append('amount', amountInput.value / 100);
         formData.append('channels', activeChannels.join(','));
+        formData.append('color_space', 'RGB');
+        formData.append('blend_mode', 'normal');
 
         try {
             const response = await fetch('/api/image/invert-image', {
@@ -125,16 +127,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             imageAfter.src = url;
             imageAfter.style.display = 'block';
-            applyTransformations(imageAfter); // Match existing preview transformations
+            applyTransformations(imageAfter);
             downloadBtn.style.display = 'inline-block';
 
             downloadBtn.onclick = () => {
-                // To download with CSS transformations, we'd need a canvas. 
-                // For simplicity as per existing tools, we download the original inverted image.
                 const link = document.createElement('a');
                 link.href = url;
                 link.download = `inverted_${currentFile.name}`;
                 link.click();
+                setTimeout(() => URL.revokeObjectURL(url), 100);
             };
         } catch (error) {
             console.error(error);

@@ -1,0 +1,15 @@
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.env
+.git/
+.gitignore
+README.md
+PRD.md
+context.md
+CONTEXT.md
+PRIVACY.md
+SEO-GEO.md
+images/Temp.png

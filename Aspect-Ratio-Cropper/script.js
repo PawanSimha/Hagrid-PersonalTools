@@ -1,4 +1,4 @@
-/* Author: Pawan Simha */
+/* Author: Pawan Simha R */
 // Aspect Ratio Cropper Logic
 const imageInput = document.getElementById('imageInput');
 const dropZone = document.getElementById('dropZone');

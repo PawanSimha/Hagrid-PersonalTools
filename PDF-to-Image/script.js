@@ -1,4 +1,4 @@
-/* Author: Pawan Simha */
+/* Author: Pawan Simha R */
 document.addEventListener('DOMContentLoaded', () => {
     const fileInput = document.getElementById('fileInput');
     const dropZone = document.getElementById('dropZone');

@@ -1,7 +1,6 @@
 
 # .gitignore for Hagrid Project
-# Virtual Environment (Recreated by setup.bat)
-Hagrid/
+# Virtual Environment
 .venv/
 venv/
 env/
@@ -9,21 +8,27 @@ env/
 # Python Cache
 __pycache__/
 *.pyc
+*.pyo
+*.egg-info/
 
 # Local Configuration
 .env
 .vscode/
 .idea/
 
-# Desktop Shortcuts (Recreated by setup.bat)
-*.lnk
+# Test Artifacts
+.pytest_cache/
 
-models/
-
-dist/
-
-build/
-
+# Build Artifacts
 dist/
 build/
 *.exe
+*.spec
+
+# Desktop Shortcuts
+*.lnk
+
+# OS Junk
+.DS_Store
+Thumbs.db
+*.log

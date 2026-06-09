@@ -1,6 +1,6 @@
 /*
-    Hagrid — Global Functionality
-    Author: Pawan Simha
+    Hagrid - Global Functionality
+    Author: Pawan Simha R
 */
 
 // Theme Toggle Logic

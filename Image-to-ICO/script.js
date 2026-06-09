@@ -1,3 +1,4 @@
+/* Author: Pawan Simha R */
 // Image to ICO Logic
 const imageInput = document.getElementById('imageInput');
 const dropZone = document.getElementById('dropZone');

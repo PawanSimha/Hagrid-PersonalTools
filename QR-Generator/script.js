@@ -1,4 +1,4 @@
-/* Author: Pawan Simha */
+/* Author: Pawan Simha R */
 // QR Generator Logic
 const qrInput = document.getElementById('qrInput');
 const fgColor = document.getElementById('fgColor');

@@ -1,4 +1,4 @@
-/* Author: Pawan Simha */
+/* Author: Pawan Simha R */
 // Format Converter Logic
 const imageInput = document.getElementById('imageInput');
 const dropZone = document.getElementById('dropZone');

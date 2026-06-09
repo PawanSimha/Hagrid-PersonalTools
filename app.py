@@ -1,15 +1,18 @@
-
 import uvicorn
 import os
 import time
+from dotenv import load_dotenv
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
+from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from core.logger import TelemetryLogger
 from core.exceptions import register_exception_handlers
 from routers import image_router, pdf_router
+
+load_dotenv()
 
 app = FastAPI(
     title="Hagrid Professional Suite",
@@ -65,10 +68,22 @@ async def add_security_headers_and_telemetry(request: Request, call_next):
         )
         raise
 
-# 4. Enable CORS
+# 4. Catch-all 404 handler for unknown routes
+@app.exception_handler(StarletteHTTPException)
+async def not_found_handler(request: Request, exc: StarletteHTTPException):
+    if exc.status_code == 404 and not request.url.path.startswith("/api/"):
+        return FileResponse("404.html")
+    return JSONResponse(status_code=exc.status_code, content={"detail": exc.detail})
+
+# 5. Enable CORS (configurable via ALLOWED_ORIGINS env var)
+allowed_origins_str = os.getenv("ALLOWED_ORIGINS")
+if allowed_origins_str:
+    origins = [o.strip() for o in allowed_origins_str.split(",")]
+else:
+    origins = ["*"]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -127,6 +142,7 @@ async def read_index():
 if __name__ == "__main__":
     host = os.getenv("HOST", "127.0.0.1")
     port = int(os.getenv("PORT", 8000))
+    reload_enabled = os.getenv("UVICORN_RELOAD", "false").lower() == "true"
     
     TelemetryLogger.info(f"Starting Hagrid Optimized Server on {host}:{port}")
     
@@ -134,5 +150,5 @@ if __name__ == "__main__":
         "app:app",
         host=host,
         port=port,
-        reload=True
+        reload=reload_enabled
     )

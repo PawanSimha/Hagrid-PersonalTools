@@ -1,0 +1,15 @@
+services:
+  hagrid:
+    build: .
+    container_name: hagrid
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+      - LOG_LEVEL=info
+      - ALLOWED_ORIGINS=http://localhost:8000,http://127.0.0.1:8000
+      - SECRET_KEY=change-me-in-production
+      - MAX_UPLOAD_SIZE=52428800
+      - ENVIRONMENT=production
+    restart: unless-stopped

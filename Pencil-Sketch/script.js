@@ -1,4 +1,4 @@
-/* Author: Pawan Simha */
+/* Author: Pawan Simha R */
 document.addEventListener('DOMContentLoaded', () => {
     const fileInput = document.getElementById('fileInput');
     const dropZone = document.getElementById('dropZone');
@@ -56,6 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData();
         formData.append('file', currentFile);
         formData.append('intensity', intensityInput.value / 100);
+        formData.append('sketch_type', 'gray');
+        formData.append('line_thickness', '1');
+        formData.append('shadow_tint', '#000000');
 
         try {
             const response = await fetch('/api/image/pencil-sketch', {
@@ -77,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.href = url;
                 link.download = `sketched_${currentFile.name}`;
                 link.click();
+                setTimeout(() => URL.revokeObjectURL(url), 100);
             };
 
         } catch (error) {

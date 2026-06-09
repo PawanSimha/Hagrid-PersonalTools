@@ -1,4 +1,70 @@
-User-agent: *
+# Hagrid robots.txt - 2026 AI-Aware Crawler Directives
+# Domain: https://hagrid.tools
+# Last updated: 2026-06-09
+# ───────────────────────────────────────────────────────────────
+
+# === ALLOWED: Search Indexers & AI Live-Retrieval Agents ===
+# These agents drive organic search traffic and AI-assisted discovery.
+# They fetch one page at a time in response to a user query (live-retrieval).
+
+User-agent: Googlebot
 Allow: /
 
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# === PARTIALLY ALLOWED: Google-Extended (Gemini Training) ===
+# Blocks Gemini AI training data ingestion while keeping Google Search active.
+User-agent: Google-Extended
+Disallow: /
+
+# === DISALLOWED: Bulk Training Scrapers ===
+# These agents consume bandwidth to train commercial AI models.
+# They offer zero search traffic or user-facing value.
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Imagesift
+Disallow: /
+
+# === CATCH-ALL: Default rule for all other bots ===
+User-agent: *
+Allow: /
+Crawl-delay: 10
+
+# === SITEMAP ===
 Sitemap: https://hagrid.tools/sitemap.xml

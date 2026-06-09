@@ -5,7 +5,7 @@
     padding: 0 1rem;
 }
 
-/* Author: Pawan Simha */
+/* Author: Pawan Simha R */
 .tool-header {
     text-align: center;
     margin-bottom: 2rem;
@@ -268,37 +268,37 @@
 }
 
 /* Dark Mode Adjustments */
-body.dark-mode .preview-card,
-body.dark-mode .controls-card {
+[data-theme="dark"] .preview-card,
+[data-theme="dark"] .controls-card {
     background: #1e1e1e;
     border-color: #333;
 }
 
-body.dark-mode .control-group label {
+[data-theme="dark"] .control-group label {
     color: #e0e0e0;
 }
 
-body.dark-mode .preview-main {
+[data-theme="dark"] .preview-main {
     background: #121212;
 }
 
-body.dark-mode .preview-footer {
+[data-theme="dark"] .preview-footer {
     background: #252525;
     border-top-color: #333;
     color: #aaa;
 }
 
-body.dark-mode .ratio-btn,
-body.dark-mode .icon-btn,
-body.dark-mode .secondary-btn,
-body.dark-mode input,
-body.dark-mode select {
+[data-theme="dark"] .ratio-btn,
+[data-theme="dark"] .icon-btn,
+[data-theme="dark"] .secondary-btn,
+[data-theme="dark"] input,
+[data-theme="dark"] select {
     background: #2d2d2d;
     border-color: #444;
     color: #e0e0e0;
 }
 
-body.dark-mode .ratio-btn.active {
+[data-theme="dark"] .ratio-btn.active {
     background: #007bff;
     border-color: #007bff;
 }

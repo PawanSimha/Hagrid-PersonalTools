@@ -56,7 +56,7 @@ function handleImage(file) {
 imageInput.addEventListener("change", e => {
   handleImage(e.target.files[0]);
 });
-/* Author: Pawan Simha */
+/* Author: Pawan Simha R */
 /**
  * Border Radius Cropper logic
  */

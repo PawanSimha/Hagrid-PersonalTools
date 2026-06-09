@@ -1,6 +1,6 @@
 /**
  * Image Collage Maker
- * Author: Pawan Simha
+ * Author: Pawan Simha R
  */
 
 document.addEventListener('DOMContentLoaded', () => {
